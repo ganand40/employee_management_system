@@ -16,7 +16,9 @@ Step 2 - Define the Menu System
 1.	Add Employee
 2.	View All Employees
 3.	Search for Employee
-4.	Exit
+4.	Update the Employee
+5.	Delete the Employee
+6.	Exit
 ●	Implement a loop to continuously display the menu until the user chooses to Exit.
 
 
@@ -58,4 +60,8 @@ To keep the project organized, break it into functions:
 2.	add_employee(): Adds a new employee to the dictionary.
 3.	view_employees(): Displays all employee details.
 4.	search_employee(): Searches for an employee by ID.
+
+Step 7 - Update and Delete Employees program
+1. Update employee records by entering the emp_id, keeping the values default (enter to accept the existing values) unless typed to change.
+2. Delete employee records by entering the emp_id
 
