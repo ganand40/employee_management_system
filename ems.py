@@ -25,6 +25,8 @@ employees = {
 # Add Employee
 # View All Employees
 # Search for Employee
+# Update the Employee
+# Delete the Employee
 # Exit
 
 def main_menu():
@@ -33,7 +35,9 @@ def main_menu():
         print("1. Add Employee")
         print("2. View All Employees")
         print("3. Search for Employee")
-        print("4. Exit")
+        print("4. Update Employee")
+        print("5. Delete Employee")
+        print("6. Exit")
 
         choice = input("Enter your choice (1-4): ")
 
@@ -44,7 +48,11 @@ def main_menu():
         elif choice == '3':
             search_employee()
         elif choice == '4':
-            print("Thank you for using Employee Management System.")
+            update_employee()
+        elif choice == '5':
+            delete_employee()
+        elif choice == '6':
+            print("Exiting system...")
             break
         else:
             print("Invalid choice. Please try again.")
@@ -94,5 +102,41 @@ def search_employee():
     else:
         print("Employee not found.")
 
+def update_employee():
+    emp_id = int(input("Enter Employee ID to update: "))
+
+    if emp_id not in employees:
+        print("Employee not found.")
+        return
+
+    print("\nLeave field empty to keep current value.")
+
+    name = input(f"Enter Name ({employees[emp_id]['name']}): ")
+    age = input(f"Enter Age ({employees[emp_id]['age']}): ")
+    department = input(f"Enter Department ({employees[emp_id]['department']}): ")
+    salary = input(f"Enter Salary ({employees[emp_id]['salary']}): ")
+
+    if name:
+        employees[emp_id]['name'] = name
+    if age:
+        employees[emp_id]['age'] = int(age)
+    if department:
+        employees[emp_id]['department'] = department
+    if salary:
+        employees[emp_id]['salary'] = int(salary)
+
+    print("Employee record updated successfully.")
+
+def delete_employee():
+    emp_id = int(input("Enter Employee ID to delete: "))
+
+    if emp_id in employees:
+        del employees[emp_id]
+        print("Employee record deleted successfully.")
+    else:
+        print("Employee not found.")
+
+
 # Program execution starts here
 main_menu()
+
